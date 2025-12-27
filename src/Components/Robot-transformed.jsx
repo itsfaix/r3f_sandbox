@@ -8,16 +8,53 @@ import { useGLTF } from '@react-three/drei'
 
 function Model(props) {
   const { nodes, materials } = useGLTF('/robot-transformed.glb')
+
+
+  const Expression = () => {
+    if(props.expression === "Smile") {
+      return (
+        <mesh 
+          name="Smile" 
+          geometry={nodes.Smile.geometry} 
+          material={materials.Expression} 
+          morphTargetDictionary={nodes.Smile.morphTargetDictionary} 
+          morphTargetInfluences={nodes.Smile.morphTargetInfluences} 
+        />
+      )
+    } else if(props.expression === "Angry") {
+      return (
+        <mesh 
+          name="Angry" 
+          geometry={nodes.Angry.geometry} 
+          material={materials.Expression} 
+          morphTargetDictionary={nodes.Angry.morphTargetDictionary} 
+          morphTargetInfluences={nodes.Angry.morphTargetInfluences} 
+        />
+      )
+    }
+  }
+
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.Computer_Head.geometry} material={materials.Computer} />
-      <mesh geometry={nodes.Cube.geometry} material={materials.Parts} position={[1.995, 0.04, 0.378]} rotation={[-0.41, 0, 0.438]} scale={0.974} />
-      <mesh name="Angry" geometry={nodes.Angry.geometry} material={materials.Expression} morphTargetDictionary={nodes.Angry.morphTargetDictionary} morphTargetInfluences={nodes.Angry.morphTargetInfluences} />
+      <mesh 
+        geometry={nodes.Computer_Head.geometry} 
+        material={materials.Computer} 
+      />
+      <mesh 
+        geometry={nodes.Cube.geometry} 
+        material={materials.Parts} 
+        position={[1.995, 0.04, 0.378]}
+        rotation={[-0.41, 0, 0.438]} 
+        scale={0.974} 
+      />
+      { /*
       <mesh name="Cry" geometry={nodes.Cry.geometry} material={materials.Expression} morphTargetDictionary={nodes.Cry.morphTargetDictionary} morphTargetInfluences={nodes.Cry.morphTargetInfluences} />
       <mesh name="Neutral" geometry={nodes.Neutral.geometry} material={materials.Expression} morphTargetDictionary={nodes.Neutral.morphTargetDictionary} morphTargetInfluences={nodes.Neutral.morphTargetInfluences} />
-      <mesh name="Smile" geometry={nodes.Smile.geometry} material={materials.Expression} morphTargetDictionary={nodes.Smile.morphTargetDictionary} morphTargetInfluences={nodes.Smile.morphTargetInfluences} />
       <mesh name="Starry" geometry={nodes.Starry.geometry} material={materials.Expression} morphTargetDictionary={nodes.Starry.morphTargetDictionary} morphTargetInfluences={nodes.Starry.morphTargetInfluences} />
+      */}
+      <Expression />
     </group>
+    
   )
 }
 

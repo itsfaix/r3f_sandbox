@@ -2,8 +2,24 @@
 
 #canvas-container{
   width: 100vw;
-  height:  50vw;
+  height:  70vw;
 }
+
+.btn {
+  @apply 
+    px-8 py-3 font-mono text-sm uppercase tracking-wider
+    text-purple-400 bg-black
+    border border-purple-500/50
+    rounded-lg
+    shadow-[0_0_8px_rgba(168,85,247,0.35)]
+    transition-all duration-200
+    hover:bg-purple-500/10
+    hover:shadow-[0_0_14px_rgba(168,85,247,0.6)]
+    active:scale-[0.97]
+}
+
+
+
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
