@@ -31,6 +31,26 @@ function Model(props) {
           morphTargetInfluences={nodes.Angry.morphTargetInfluences} 
         />
       )
+    } else if (props.expression === "Starry") {
+      return (
+        <mesh 
+          name="Starry" 
+          geometry={nodes.Starry.geometry} 
+          material={materials.Expression} 
+          morphTargetDictionary={nodes.Starry.morphTargetDictionary} 
+          morphTargetInfluences={nodes.Starry.morphTargetInfluences} 
+        />
+      )
+    } else if (props.expression === "Cry"){
+      return (
+        <mesh 
+          name="Cry" 
+          geometry={nodes.Cry.geometry} 
+          material={materials.Expression} 
+          morphTargetDictionary={nodes.Cry.morphTargetDictionary} 
+          morphTargetInfluences={nodes.Cry.morphTargetInfluences} 
+        />
+      )
     }
   }
 
@@ -48,9 +68,9 @@ function Model(props) {
         scale={0.974} 
       />
       { /*
-      <mesh name="Cry" geometry={nodes.Cry.geometry} material={materials.Expression} morphTargetDictionary={nodes.Cry.morphTargetDictionary} morphTargetInfluences={nodes.Cry.morphTargetInfluences} />
+      
       <mesh name="Neutral" geometry={nodes.Neutral.geometry} material={materials.Expression} morphTargetDictionary={nodes.Neutral.morphTargetDictionary} morphTargetInfluences={nodes.Neutral.morphTargetInfluences} />
-      <mesh name="Starry" geometry={nodes.Starry.geometry} material={materials.Expression} morphTargetDictionary={nodes.Starry.morphTargetDictionary} morphTargetInfluences={nodes.Starry.morphTargetInfluences} />
+      
       */}
       <Expression />
     </group>
