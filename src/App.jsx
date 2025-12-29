@@ -1,28 +1,23 @@
-import { Canvas, useFrame, useThree } from "@react-three/fiber"
+import { Canvas } from "@react-three/fiber"
 import Model from "./Components/Robot-transformed"
 import { EffectComposer, Bloom, ToneMapping } from '@react-three/postprocessing'
-import { OrbitControls, ScrollControls, Scroll, Stage, useGLTF } from "@react-three/drei"
+import { OrbitControls, ScrollControls, Scroll, Stage } from "@react-three/drei"
 import { useState } from "react"
+import * as THREE from 'three'
+
 
 function App() {
 
   const [expression, setExpression] = useState("Smile")
   
   {/* TO-DO mmesh movemnt to cursor */}
-  function Mouse() {
-    const { mouse } = useThree();
 
-    return useFrame(() => {
-    console.log(mouse.x, mouse.y, mouse.z);
-    });
-  }
 
   return (
     <> 
       <div id="canvas-container">
         <Canvas >
-          <Mouse />
-          <OrbitControls enableZoom={false} makeDefault minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2}/>
+          <OrbitControls enablePan={false}  enableZoom={false} makeDefault minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2}/>
           <ambientLight intensity={0.1}/>
           <directionalLight  intensity={2} position={[2, 2, 5]}/>
           <pointLight  intensity={1} color={[10, 2, 5]} distance={2.5} />
